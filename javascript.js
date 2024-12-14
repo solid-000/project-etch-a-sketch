@@ -2,7 +2,6 @@ const container = document.querySelector(".grid-container");
 const dimBtn = document.querySelector("#btn-dmn");
 let side = 16;
 let item = [];
-
 createCanvas();
 
 function createCanvas(){
@@ -13,11 +12,11 @@ function createCanvas(){
 }
 
 container.addEventListener("mouseover", (event) =>{
-    let target = event.target;
-    if(target === event.currentTarget){
+    let pixel = event.target;
+    if(pixel === event.currentTarget){
         return;
     }
-    target.style.backgroundColor = 'black';
+    pixel.style.backgroundColor = randomRgb();
 });
 
 dimBtn.addEventListener("click", () =>{
@@ -33,4 +32,11 @@ dimBtn.addEventListener("click", () =>{
 
 function clearCanvas(){
     container.innerHTML="";
+}
+function randomRgb(){
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    // let a = 1;
+    return `rgb(${r},${g},${b})`;
 }

@@ -19,5 +19,5 @@ body{
 .grid-container div{
     flex: auto;
     flex-basis: 6.25%;
-    border: 1px solid green;
+    /* border: 1px solid green; */
 }
