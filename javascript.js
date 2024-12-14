@@ -1,12 +1,15 @@
 const container = document.querySelector(".grid-container");
 const dimBtn = document.querySelector("#btn-dmn");
+const reset = document.querySelector("#reset");
 let side = 16;
 let item = [];
+let calc = 100/side;
 createCanvas();
 
 function createCanvas(){
     for(i=0;i<side*side;i++){
         item[i] = document.createElement("div");
+        item[i].style.flexBasis = calc + "%";
         container.appendChild(item[i]);
     }
 }
@@ -26,6 +29,12 @@ dimBtn.addEventListener("click", () =>{
     }else{
         side = buffer;
     }
+    calc = 100/side;
+    clearCanvas();
+    createCanvas();
+});
+
+reset.addEventListener("click", () =>{
     clearCanvas();
     createCanvas();
 });
